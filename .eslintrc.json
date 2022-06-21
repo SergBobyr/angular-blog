@@ -1,0 +1,117 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ]
+      },
+      "plugins": [
+        "eslint-plugin-rxjs",
+        "rxjs-angular",
+        "unused-imports"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended--extra"
+      ],
+      "rules": {
+        "rxjs/finnish": [
+          "error",
+          {
+            "functions": false,
+            "methods": false,
+            "names": {
+              "^(canActivate|canActivateChild|canDeactivate|canLoad|intercept|resolve|validate)$": false,
+              "^queryParams$": false,
+              "^queryParamMap$": false,
+              "^params$": false,
+              "^paramMap": false,
+              "^afterClosed$": false,
+              "^store$": false
+            },
+            "parameters": true,
+            "properties": true,
+            "strict": true,
+            "types": {
+              "^EventEmitter$": false,
+              "^Subject$": true
+            },
+            "variables": false
+          }
+        ],
+        "rxjs/no-unsafe-takeuntil": "error",
+        "rxjs/no-ignored-observable": "warn",
+        "rxjs/no-nested-subscribe": "error",
+        "rxjs/no-ignored-replay-buffer": "error",
+        "rxjs/no-unbound-methods": "error",
+        "rxjs-angular/prefer-takeuntil": [
+          "error",
+          {
+            "checkComplete": true,
+            "checkDecorators": ["Component"],
+            "checkDestroy": false
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": ["element", "attribute"],
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "warn",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/directive-class-suffix": "warn",
+        "@angular-eslint/no-output-native": "off",
+        "import/order": "error",
+        "arrow-body-style": "warn",
+        "no-shadow": "off",
+        "max-len": "warn",
+        "eqeqeq": "warn",
+        "no-underscore-dangle": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-unused-expressions": [
+          "error",
+          {
+            "allowTernary": true
+          }
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "curly": ["error", "multi-line"]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}
