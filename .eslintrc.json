@@ -26,6 +26,7 @@
         "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended--extra",
         "plugin:@angular-eslint/recommended--extra"
       ],
       "rules": {
@@ -62,14 +63,19 @@
           "error",
           {
             "checkComplete": true,
-            "checkDecorators": ["Component"],
+            "checkDecorators": [
+              "Component"
+            ],
             "checkDestroy": false
           }
         ],
         "@angular-eslint/component-selector": [
           "error",
           {
-            "type": ["element", "attribute"],
+            "type": [
+              "element",
+              "attribute"
+            ],
             "prefix": "app",
             "style": "kebab-case"
           }
@@ -101,7 +107,10 @@
           }
         ],
         "unused-imports/no-unused-imports": "error",
-        "curly": ["error", "multi-line"]
+        "curly": [
+          "error",
+          "multi-line"
+        ]
       }
     },
     {
